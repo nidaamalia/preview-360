@@ -3,7 +3,7 @@ import { Briefcase, Users, MapPin } from "lucide-react";
 const stats = [
   {
     icon: Briefcase,
-    value: "658+",
+    value: "650+",
     label: "Proyek Selesai",
     description: "Kepuasan pelanggan terjamin",
   },

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_CONFIG, getWhatsAppUrl } from "@/lib/constants";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,15 +20,18 @@ const Header = () => {
   const navLinks = [
     { to: "/", label: "Beranda" },
     { to: "/portfolio", label: "Portfolio 360°" },
-    { to: "/#konsultasi", label: "Konsultasi" },
   ];
+
+  const handleConsultation = () => {
+    window.open(getWhatsAppUrl(WHATSAPP_CONFIG.defaultMessage), "_blank");
+  };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/95 backdrop-blur-md ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg"
-          : "bg-transparent"
+          ? "border-b border-border shadow-lg"
+          : "border-b border-border/0"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -57,7 +61,12 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <Button variant="default" size="sm" className="bg-primary hover:bg-orange-hover text-primary-foreground">
+            <Button 
+              onClick={handleConsultation}
+              variant="default" 
+              size="sm" 
+              className="bg-primary hover:bg-orange-hover text-primary-foreground"
+            >
               Hubungi Kami
             </Button>
           </nav>
@@ -90,7 +99,11 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button variant="default" className="mt-4 bg-primary hover:bg-orange-hover text-primary-foreground w-full">
+              <Button 
+                onClick={handleConsultation}
+                variant="default" 
+                className="mt-4 bg-primary hover:bg-orange-hover text-primary-foreground w-full"
+              >
                 Hubungi Kami
               </Button>
             </nav>

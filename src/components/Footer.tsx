@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone, Facebook, Instagram, Youtube } from "lucide-react";
+import { MapPin, Mail, Phone, Facebook, Instagram, X } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -19,43 +19,27 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://web.facebook.com/paktukangdotcom?_rdc=1&_rdr#"
+                target="_blank"
                 className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/paktukangdotcom"
+                target="_blank"
                 className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://x.com/paktukangdotcom"
+                target="_blank"
                 className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               >
-                <Youtube className="w-5 h-5" />
+                <X className="w-5 h-5" />
               </a>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-bold text-foreground mb-4">Layanan Kami</h4>
-            <ul className="space-y-3">
-              {["Renovasi Rumah", "Bangun Rumah", "Interior & Kitchen Set", "Atap & Plafon", "Konsultasi Gratis"].map(
-                (link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                )
-              )}
-            </ul>
           </div>
 
           {/* Contact Info */}
@@ -65,25 +49,16 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground">
-                  Jl. Raya Darmo No. 123, Surabaya, Jawa Timur
+                  Jl. Dupak Bangunsari Tengah 14, Surabaya 60179
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="mailto:hello@paktukang.com"
+                  href="mailto:personalia@paktukang.com"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  hello@paktukang.com
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a
-                  href="tel:+6231123456"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  (031) 123-456
+                  personalia@paktukang.com
                 </a>
               </li>
             </ul>
@@ -93,16 +68,8 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} PT Paktukang. All rights reserved.
+            © {new Date().getFullYear()} PT PAKTUKANG TEKNOLOGI KARYAGLOBAL. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-muted-foreground text-sm hover:text-primary transition-colors">
-              Kebijakan Privasi
-            </a>
-            <a href="#" className="text-muted-foreground text-sm hover:text-primary transition-colors">
-              Syarat & Ketentuan
-            </a>
-          </div>
         </div>
       </div>
     </footer>

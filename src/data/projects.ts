@@ -21,6 +21,21 @@ export const categories = [
 
 export const projects: Project[] = [
   {
+    id: "renovasi-masjid-baitul-jannah",
+    title: "Renovasi Masjid Baitul Jannah",
+    category: "Renovasi",
+    location: "Surabaya",
+    area: "500 m²",
+    duration: "45 hari",
+    client: "Yayasan Baitul Jannah",
+    description:
+      "Renovasi menyeluruh masjid dengan perbaikan struktur, pengecatan, pemasangan keramik, dan perbaikan sistem ventilasi. Dilakukan dengan mempertahankan nilai historis dan estetika arsitektur masjid.",
+    thumbnail:
+      "/assets/images/360.jpg",
+    panoramaUrl:
+      "/assets/images/360.jpg",
+  },
+  {
     id: "perbaikan-atap-cititrans",
     title: "Perbaikan Atap Kantor Cititrans Surabaya",
     category: "Tukang Atap dan Plafon",

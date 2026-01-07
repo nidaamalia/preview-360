@@ -2,6 +2,7 @@ import { MapPin, Ruler, Calendar, User, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Project } from "@/data/projects";
 import { toast } from "@/hooks/use-toast";
+import { WHATSAPP_CONFIG, getWhatsAppUrl } from "@/lib/constants";
 
 interface ProjectSidebarProps {
   project: Project;
@@ -29,7 +30,7 @@ const ProjectSidebar = ({ project }: ProjectSidebarProps) => {
       description: "Tim kami akan segera menghubungi Anda untuk konsultasi.",
     });
     window.open(
-      `https://wa.me/6231123456?text=Halo%20Paktukang,%20saya%20tertarik%20dengan%20proyek%20${encodeURIComponent(project.title)}`,
+      getWhatsAppUrl(WHATSAPP_CONFIG.projectMessage(project.title)),
       "_blank"
     );
   };
@@ -43,7 +44,7 @@ const ProjectSidebar = ({ project }: ProjectSidebarProps) => {
 
   return (
     <div className="h-full flex flex-col bg-card border-l border-border">
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className="flex-1 overflow-y-auto p-6 flex flex-col">
         {/* Title */}
         <h1 className="text-2xl font-bold text-foreground mb-4 leading-tight">
           {project.title}
@@ -77,14 +78,14 @@ const ProjectSidebar = ({ project }: ProjectSidebarProps) => {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-border mb-6" />
+        <div className="h-px bg-border mb-8" />
 
         {/* Description Section */}
-        <div>
-          <h3 className="font-semibold text-foreground mb-3">
+        <div className="space-y-4 flex-1">
+          <h3 className="text-lg font-semibold text-foreground tracking-tight">
             Mengenai Portfolio ini
           </h3>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-sm text-muted-foreground leading-relaxed break-words">
             {project.description}
           </p>
         </div>

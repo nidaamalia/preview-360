@@ -98,7 +98,7 @@ const ProjectDetail = () => {
                 variant="secondary"
                 size="icon"
                 onClick={() => navigate(`/project/${nextProject.id}`)}
-                className="absolute right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background border border-border shadow-lg lg:right-[420px]"
+                className="absolute right-7 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background border border-border shadow-lg"
               >
                 <ChevronRight className="w-6 h-6" />
               </Button>
@@ -121,7 +121,7 @@ const ProjectDetail = () => {
 
           {/* Sidebar */}
           <div
-            className={`fixed lg:absolute right-0 top-28 md:top-32 bottom-0 w-full lg:w-[400px] z-40 lg:z-20 transform transition-transform duration-300 ${
+            className={`fixed lg:absolute right-0 top-0 bottom-0 w-full lg:w-[400px] z-40 lg:z-20 transform transition-transform duration-300 ${
               isSidebarOpen
                 ? "translate-x-0"
                 : "translate-x-full"

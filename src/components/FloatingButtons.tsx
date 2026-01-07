@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowUp, MessageCircle } from "lucide-react";
+import { WHATSAPP_CONFIG, getWhatsAppUrl } from "@/lib/constants";
 
 const FloatingButtons = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -17,7 +18,7 @@ const FloatingButtons = () => {
   };
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/6231123456?text=Halo%20Paktukang,%20saya%20ingin%20konsultasi", "_blank");
+    window.open(getWhatsAppUrl(WHATSAPP_CONFIG.defaultMessage), "_blank");
   };
 
   return (
