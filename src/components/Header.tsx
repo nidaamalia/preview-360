@@ -18,7 +18,7 @@ const Header = () => {
 
   const navLinks = [
     { to: "/", label: "Beranda" },
-    { to: "/#portfolio", label: "Portfolio 360°" },
+    { to: "/portfolio", label: "Portfolio 360°" },
     { to: "/#konsultasi", label: "Konsultasi" },
   ];
 
