@@ -31,9 +31,9 @@ export const projects: Project[] = [
     description:
       "Renovasi menyeluruh masjid dengan perbaikan struktur, pengecatan, pemasangan keramik, dan perbaikan sistem ventilasi. Dilakukan dengan mempertahankan nilai historis dan estetika arsitektur masjid.",
     thumbnail:
-      "/assets/images/360.jpg",
+      "/assets/images/360_compressed.jpg",
     panoramaUrl:
-      "/assets/images/360.jpg",
+      "/assets/images/360_compressed.jpg",
   },
   {
     id: "perbaikan-atap-cititrans",
