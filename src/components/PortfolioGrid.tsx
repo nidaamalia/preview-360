@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { projects, categories } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
+import { Search } from "lucide-react";
 
 const PortfolioGrid = () => {
   const [activeCategory, setActiveCategory] = useState("Semua");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProjects =
-    activeCategory === "Semua"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+  const filteredProjects = projects.filter((p) => {
+    const matchesCategory = activeCategory === "Semua" || p.category === activeCategory;
+    const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <section id="portfolio" className="py-16 md:py-24 bg-background">
@@ -21,6 +26,20 @@ const PortfolioGrid = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Jelajahi hasil pekerjaan tim profesional kami secara interaktif
           </p>
+        </div>
+
+        {/* Search Bar */}
+        <div className="max-w-md mx-auto mb-8">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Cari proyek..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 rounded-full bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            />
+          </div>
         </div>
 
         {/* Filter Tabs */}
@@ -57,7 +76,7 @@ const PortfolioGrid = () => {
         {filteredProjects.length === 0 && (
           <div className="text-center py-16">
             <p className="text-muted-foreground">
-              Tidak ada proyek dalam kategori ini.
+              Tidak ada proyek yang ditemukan.
             </p>
           </div>
         )}
