@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import PortfolioGrid from "@/components/PortfolioGrid";
+import PortfolioPreview from "@/components/PortfolioPreview";
 import StatsSection from "@/components/StatsSection";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
@@ -10,7 +10,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
-      <PortfolioGrid />
+      <PortfolioPreview />
       <StatsSection />
       <Footer />
       <FloatingButtons />
