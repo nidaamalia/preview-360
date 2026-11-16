@@ -149,7 +149,7 @@ const PannellumViewer = ({ imageUrl, title }: PannellumViewerProps) => {
       )}
 
       {/* Pannellum Container */}
-      <div ref={viewerRef} className="w-full h-full" />
+      <div ref={viewerRef} className="w-full h-full" aria-label={`Panorama ${title}`} />
 
       {/* Custom Controls */}
       <div className="absolute top-4 right-4 flex flex-col gap-2 z-20">
@@ -157,6 +157,7 @@ const PannellumViewer = ({ imageUrl, title }: PannellumViewerProps) => {
           variant="secondary"
           size="icon"
           onClick={handleZoomIn}
+          aria-label="Perbesar panorama"
           className="bg-background/80 backdrop-blur-sm hover:bg-background border border-border"
         >
           <ZoomIn className="w-4 h-4" />
@@ -165,6 +166,7 @@ const PannellumViewer = ({ imageUrl, title }: PannellumViewerProps) => {
           variant="secondary"
           size="icon"
           onClick={handleZoomOut}
+          aria-label="Perkecil panorama"
           className="bg-background/80 backdrop-blur-sm hover:bg-background border border-border"
         >
           <ZoomOut className="w-4 h-4" />
@@ -175,7 +177,9 @@ const PannellumViewer = ({ imageUrl, title }: PannellumViewerProps) => {
         <Button
           variant="secondary"
           size="icon"
+          aria-pressed={isAutoRotating}
           onClick={toggleAutoRotate}
+          aria-label="Putar panorama otomatis"
           className={`bg-background/80 backdrop-blur-sm hover:bg-background border border-border ${
             isAutoRotating ? "text-primary border-primary" : ""
           }`}
@@ -189,6 +193,7 @@ const PannellumViewer = ({ imageUrl, title }: PannellumViewerProps) => {
           variant="secondary"
           size="icon"
           onClick={toggleFullscreen}
+          aria-label={isFullscreen ? "Keluar dari layar penuh" : "Buka layar penuh"}
           className="bg-background/80 backdrop-blur-sm hover:bg-background border border-border"
         >
           {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}

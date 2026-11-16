@@ -1,73 +1,49 @@
-# Welcome to your Lovable project
+![Preview 360 — Explore project spaces through interactive panoramas](docs/banner.svg)
 
-## Project info
+# Preview 360
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A project-portfolio frontend with an interactive panorama viewer. Built with React, TypeScript, Vite, Tailwind CSS, shadcn/ui, and Pannellum.
 
-## How can I edit this code?
+## What to explore
 
-There are several ways of editing your application.
+- Browse projects and filter by category.
+- Open project details with a panorama, sidebar, and project metadata.
+- Zoom, enable automatic rotation, and enter fullscreen in the viewer.
+- Responsive page composition with reusable interface components.
 
-**Use Lovable**
+## Run locally
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Use Node.js 22 LTS and npm.
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/nidaamalia/preview-360.git
+cd preview-360
+npm ci
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open the URL printed by Vite. The panorama library and some images load from external hosts, so a network connection is required.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build
+npm run preview
+```
 
-**Use GitHub Codespaces**
+## Code tour
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| Area | Code |
+| --- | --- |
+| Panorama lifecycle and controls | [PannellumViewer.tsx](src/components/PannellumViewer.tsx) |
+| Project data and image sources | [projects.ts](src/data/projects.ts) |
+| Detail page | [ProjectDetail.tsx](src/pages/ProjectDetail.tsx) |
+| Portfolio listing | [Portfolio.tsx](src/pages/Portfolio.tsx) |
 
-## What technologies are used for this project?
+The viewer wraps an imperative browser library in a React component. Its effect owns setup and cleanup; UI controls talk to the viewer instance through a ref.
 
-This project is built with:
+## Demo boundaries
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Project content is bundled in the frontend; there is no CMS or live project backend. Some sample images are ordinary photographs, not equirectangular panoramas, and will not provide a geometrically correct 360-degree view. Use a genuine 2:1 panorama when evaluating the viewer. Verify permission to reuse project names and photography before publishing a commercial portfolio.
 
-## How can I deploy this project?
+## Suggested walkthrough
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Open the portfolio, select a project, then try zoom, rotation, and fullscreen. Switch projects to exercise cleanup and reinitialisation. Network-failure and retry handling remain follow-up work; do not interpret a loading indicator as a successful panorama load.
